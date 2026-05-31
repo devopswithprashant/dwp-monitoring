@@ -10,10 +10,10 @@ resources:
   - namespace.yaml                 # env-specific namespace
   
 
-patches: 
-  - patch-prometheus-config.yaml   # env-specific scrape targets
-  - patch-resources.yaml           # lower limits for dev
-  - prometheus-rbac-patch.yaml     # permissions for pod discovery in dwp-dev
+patches:
+  - path: patch-prometheus-config.yaml   # ← must be an object with "path:" key
+  - path: patch-resources.yaml
+  - path: prometheus-rbac-patch.yaml
 
 labels:
   - pairs:
