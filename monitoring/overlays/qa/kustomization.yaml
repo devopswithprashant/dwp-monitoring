@@ -13,8 +13,9 @@ patches:
   - path: patch-prometheus-config.yaml   # ← must be an object with "path:" key
   - path: patch-resources.yaml
   - path: prometheus-rbac-patch.yaml
+  - path: patch-grafana-datasource.yaml
 
-  
+
 labels:
   - pairs:
       environment: qa
