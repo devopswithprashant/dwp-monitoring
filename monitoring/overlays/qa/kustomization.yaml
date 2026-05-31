@@ -8,6 +8,7 @@ namePrefix: qa-                   # optional: prefixes resource names
 resources:
   - ../../base
   - namespace.yaml                 # env-specific namespace
+  - prometheus-rbac-patch.yaml     # permissions for pod discovery in dwp-qa
 
 patches:
   - path: patch-resources.yaml    # lower limits for qa

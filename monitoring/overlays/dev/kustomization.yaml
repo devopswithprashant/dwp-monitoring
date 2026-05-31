@@ -8,6 +8,7 @@ namePrefix: dev-                   # optional: prefixes resource names
 resources:
   - ../../base
   - namespace.yaml                 # env-specific namespace
+  - prometheus-rbac-patch.yaml     # permissions for pod discovery in dwp-dev
 
 patches:
   - path: patch-resources.yaml    # lower limits for dev
