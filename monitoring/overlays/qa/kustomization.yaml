@@ -13,6 +13,6 @@ patches:
   - path: patch-resources.yaml    # lower limits for qa
   - path: patch-prometheus-config.yaml  # env-specific scrape targets
 
-
-commonLabels:
-  environment: qa
+labels:
+  - pairs:
+      environment: qa

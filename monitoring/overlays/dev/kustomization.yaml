@@ -13,6 +13,6 @@ patches:
   - path: patch-resources.yaml    # lower limits for dev
   - path: patch-prometheus-config.yaml  # env-specific scrape targets
 
-
-commonLabels:
-  environment: dev
+labels:
+  - pairs:
+      environment: dev
