@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: monitoring-qa          # ← overrides ALL resource namespaces
+
+namePrefix: qa-                   # optional: prefixes resource names
+
+resources:
+  - ../../base
+  - namespace.yaml                 # env-specific namespace
+
+patches:
+  - path: patch-resources.yaml    # lower limits for qa
+  - path: patch-prometheus-config.yaml  # env-specific scrape targets
+
+
+commonLabels:
+  environment: qa
