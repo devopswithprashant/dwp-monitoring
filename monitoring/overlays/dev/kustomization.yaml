@@ -8,11 +8,12 @@ namePrefix: dev-                   # optional: prefixes resource names
 resources:
   - ../../base
   - namespace.yaml                 # env-specific namespace
-  - prometheus-rbac-patch.yaml     # permissions for pod discovery in dwp-dev
+  
 
 patchesStrategicMerge:
   - patch-prometheus-config.yaml   # env-specific scrape targets
   - patch-resources.yaml           # lower limits for dev
+  - prometheus-rbac-patch.yaml     # permissions for pod discovery in dwp-dev
 
 labels:
   - pairs:

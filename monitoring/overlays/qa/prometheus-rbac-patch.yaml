@@ -1,24 +1,9 @@
-# Grant qa-prometheus SA permissions to discover pods in dwp-qa namespace
+# overlays/qa/prometheus-rbac-patch.yaml
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRoleBinding
 metadata:
-  name: prometheus-pod-discovery
-  namespace: dwp-qa
-rules:
-  - apiGroups: [""]
-    resources: [pods]
-    verbs: [get, list, watch]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: prometheus-pod-discovery
-  namespace: dwp-qa
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: prometheus-pod-discovery
+  name: qa-prometheus          # must match: base name "prometheus" + namePrefix "qa-"
 subjects:
   - kind: ServiceAccount
-    name: qa-prometheus  # namePrefix adds "qa-" to service account name
-    namespace: monitoring-qa
+    name: qa-prometheus        # same — namePrefix applies to SA too
+    namespace: monitoring-qa   # ← the actual namespace the SA lives in
