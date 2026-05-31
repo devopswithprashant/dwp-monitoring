@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: qa-prometheus          # must match: base name "prometheus" + namePrefix "qa-"
+  name: prometheus          # must match: base name "prometheus" + namePrefix "qa-"
 subjects:
   - kind: ServiceAccount
     name: qa-prometheus        # same — namePrefix applies to SA too
