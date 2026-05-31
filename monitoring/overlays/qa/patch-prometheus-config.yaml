@@ -109,11 +109,11 @@ data:
           module: [http_2xx]
         static_configs:
           - targets:
-              - http://dwp-platform-ui.dwp-platform.svc.cluster.local/health
+              - http://dwp-platform-ui.dwp-qa.svc.cluster.local/health
             labels:
               probe: ui-health
           - targets:
-              - http://dwp-platform-ui.dwp-platform.svc.cluster.local/
+              - http://dwp-platform-ui.dwp-qa.svc.cluster.local/
             labels:
               probe: ui-home
         relabel_configs:
@@ -122,6 +122,6 @@ data:
           - source_labels: [__param_target]
             target_label: instance
           - target_label: __address__
-            replacement: blackbox-exporter.monitoring-qa.svc.cluster.local:9115
+            replacement: qa-blackbox-exporter.monitoring-qa.svc.cluster.local:9115
           - target_label: app
             replacement: dwp-platform-ui
