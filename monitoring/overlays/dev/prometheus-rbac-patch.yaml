@@ -2,8 +2,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: dev-prometheus          # must match: base name "prometheus" + namePrefix "dev-"
+  name: prometheus          # ← base name (before namePrefix is applied)
 subjects:
   - kind: ServiceAccount
-    name: dev-prometheus        # same — namePrefix applies to SA too
-    namespace: monitoring-dev   # ← the actual namespace the SA lives in
+    name: dev-prometheus    # ← explicitly set the prefixed SA name (namePrefix won't do this for you)
+    namespace: monitoring-dev
