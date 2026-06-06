@@ -15,6 +15,7 @@ patches:
   - path: patch-resources.yaml
   - path: prometheus-rbac-patch.yaml
   - path: patch-grafana-datasource.yaml
+  - path: patch-grafana-service.yaml
 
 labels:
   - pairs:
